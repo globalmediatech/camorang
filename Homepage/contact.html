@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - FCAN Morang</title>
+    <link rel="stylesheet" href="../css/fcan-colors.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../images/new-logo-fcan.png" type="image/x-icon">
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-container {
+            padding: 40px 0;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-header h1 {
+            color: var(--fcan-blue);
+            margin-bottom: 15px;
+        }
+
+        .contact-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Cards */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .contact-card {
+            background-color: var(--fcan-white);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 3px 10px var(--shadow-light);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--fcan-blue);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow-medium);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--fcan-blue);
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 15px;
+            color: var(--fcan-blue);
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .contact-card a {
+            color: var(--fcan-light-blue);
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Content */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 991.98px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Map Section */
+        .map-section h2,
+        .form-section h2 {
+            margin-bottom: 25px;
+            color: var(--fcan-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .map-section h2 i,
+        .form-section h2 i {
+            color: var(--fcan-orange);
+        }
+
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px var(--shadow-light);
+            margin-bottom: 20px;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        .map-info {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .map-info h4 {
+            margin-bottom: 15px;
+            color: var(--fcan-blue);
+        }
+
+        .directions-list {
+            list-style: none;
+        }
+
+        .directions-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .directions-list li i {
+            position: absolute;
+            left: 0;
+            color: var(--fcan-green);
+        }
+
+        /* Contact Form */
+        .form-section {
+            background-color: var(--fcan-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px var(--shadow-light);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--fcan-blue);
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--fcan-light-blue);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 767.98px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-check input {
+            margin-top: 5px;
+        }
+
+        .form-check label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Departments Section */
+        .departments-section {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .departments-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--fcan-blue);
+        }
+
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .department-card {
+            background-color: var(--fcan-white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 3px 10px var(--shadow-light);
+            transition: all 0.3s ease;
+            text-align: center;
+            border-top: 4px solid var(--fcan-green);
+        }
+
+        .department-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow-medium);
+        }
+
+        .department-card.membership {
+            border-top-color: var(--fcan-blue);
+        }
+
+        .department-card.tender {
+            border-top-color: var(--fcan-orange);
+        }
+
+        .department-card.training {
+            border-top-color: var(--fcan-purple);
+        }
+
+        .department-card.legal {
+            border-top-color: var(--fcan-red);
+        }
+
+        .department-icon {
+            font-size: 2rem;
+            color: var(--fcan-blue);
+            margin-bottom: 15px;
+        }
+
+        .department-card h3 {
+            margin-bottom: 10px;
+            color: var(--fcan-blue);
+        }
+
+        .department-card p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .department-contact {
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .department-contact p {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .department-contact i {
+            color: var(--fcan-light-blue);
+            width: 20px;
+        }
+
+        /* Office Hours */
+        .office-hours {
+            background-color: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .office-hours h3 {
+            margin-bottom: 20px;
+            color: var(--fcan-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .office-hours h3 i {
+            color: var(--fcan-orange);
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .hours-table th {
+            background-color: var(--fcan-blue);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .hours-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .hours-table tr:hover {
+            background-color: var(--transparent-blue);
+        }
+
+        /* Social Media */
+        .social-media {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .social-media h3 {
+            margin-bottom: 20px;
+            color: var(--fcan-blue);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            color: var(--fcan-blue);
+        }
+
+        .social-icon i {
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover i {
+            background-color: var(--fcan-blue);
+            color: white;
+        }
+
+        .social-icon.facebook:hover i {
+            background-color: #1877f2;
+        }
+
+        .social-icon.twitter:hover i {
+            background-color: #1da1f2;
+        }
+
+        .social-icon.linkedin:hover i {
+            background-color: #0077b5;
+        }
+
+        .social-icon.youtube:hover i {
+            background-color: #ff0000;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 767.98px) {
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .departments-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hours-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .social-icons {
+                gap: 15px;
+            }
+            
+            .social-icon span {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .social-icons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> 021-123456</span>
+                    <span><i class="fas fa-envelope"></i> info@fcanmorang.org.np</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Biratnagar, Morang</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="../images/new-logo-fcan.png" alt="FCAN Morang" class="main-logo">
+                        <div class="logo-text">
+                            <h1>FCAN Morang</h1>
+                            <p>Federation of Contractors' Associations of Nepal<br>Morang District Chapter</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="header-right">
+                    <div class="national-link">
+                        <a href="https://fcan.org.np" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            FCAN National Headquarters
+                        </a>
+                    </div>
+                    
+                    <nav class="main-nav">
+                        <ul class="nav-menu">
+                            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li class="dropdown">
+                                <a href="#"><i class="fas fa-info-circle"></i> About <i class="fas fa-chevron-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="about.html">About FCAN Morang</a></li>
+                                    <li><a href="committee.html">Executive Committee</a></li>
+                                    <li><a href="about.html#history">History</a></li>
+                                    <li><a href="about.html#constitution">Constitution</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="members.html"><i class="fas fa-users"></i> Members</a></li>
+                            <li><a href="news.html"><i class="fas fa-newspaper"></i> News & Notices</a></li>
+                            <li><a href="tenders.html"><i class="fas fa-file-contract"></i> Tenders</a></li>
+                            <li><a href="resources.html"><i class="fas fa-book"></i> Resources</a></li>
+                            <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                            <li><a href="contact.html" class="active"><i class="fas fa-address-book"></i> Contact</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <button class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i>
+                <span>Contact</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <main class="page-content">
+        <div class="container">
+            <div class="contact-header">
+                <h1>Get in Touch</h1>
+                <p>We're here to help! Contact FCAN Morang District Chapter for any inquiries, support, or information you may need.</p>
+            </div>
+
+            <!-- Contact Cards -->
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visit Our Office</h3>
+                    <p>FCAN Morang District Chapter Office</p>
+                    <p>Biratnagar-13, Morang, Nepal</p>
+                    <p>(Near Biratnagar Bus Park)</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p><strong>Office:</strong> 021-123456, 021-654321</p>
+                    <p><strong>President:</strong> 9841XXXXXX</p>
+                    <p><strong>Secretary:</strong> 9842XXXXXX</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p><strong>General:</strong> info@fcanmorang.org.np</p>
+                    <p><strong>President:</strong> president@fcanmorang.org.np</p>
+                    <p><strong>Secretary:</strong> secretary@fcanmorang.org.np</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <h3>Office Hours</h3>
+                    <p><strong>Sunday - Friday:</strong> 10:00 AM - 5:00 PM</p>
+                    <p><strong>Saturday:</strong> Closed</p>
+                    <p><strong>Holidays:</strong> As per government calendar</p>
+                </div>
+            </div>
+
+            <!-- Map and Form -->
+            <div class="contact-content">
+                <!-- Map Section -->
+                <div class="map-section">
+                    <h2><i class="fas fa-map-marked-alt"></i> Our Location</h2>
+                    <div class="map-container">
+                        <!-- Google Maps Embed -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3564.215267798811!2d87.28351481504116!3d26.65196348320952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6c4b6c7c1b7f%3A0x1a7a3b3b3b3b3b3b!2sBiratnagar%2C%20Nepal!5e0!3m2!1sen!2snp!4v1641234567890!5m2!1sen!2snp"
+                            class="map-frame"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    
+                    <div class="map-info">
+                        <h4>How to Reach Us</h4>
+                        <ul class="directions-list">
+                            <li><i class="fas fa-bus"></i> Get down at Biratnagar Bus Park. Our office is 5 minutes walk from there.</li>
+                            <li><i class="fas fa-taxi"></i> Ask for "FCAN Office near Bus Park" - most drivers know the location.</li>
+                            <li><i class="fas fa-car"></i> Parking available in front of the office building.</li>
+                            <li><i class="fas fa-walking"></i> Located in central Biratnagar, easily accessible from all parts of the city.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="form-section">
+                    <h2><i class="fas fa-envelope"></i> Send Message</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select Subject</option>
+                                    <option value="membership">Membership Inquiry</option>
+                                    <option value="tender">Tender Information</option>
+                                    <option value="training">Training Programs</option>
+                                    <option value="complaint">Complaint/Suggestion</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">
+                                Subscribe to our newsletter for updates and announcements
+                            </label>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                            <button type="reset" class="btn btn-secondary">
+                                <i class="fas fa-redo"></i> Clear Form
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Departments Section -->
+            <div class="departments-section">
+                <h2>Contact by Department</h2>
+                <div class="departments-grid">
+                    <div class="department-card membership">
+                        <div class="department-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3>Membership Department</h3>
+                        <p>Handles new membership applications, renewals, and member services.</p>
+                        <div class="department-contact">
+                            <p><i class="fas fa-user"></i> Contact: Hari Sharma</p>
+                            <p><i class="fas fa-phone"></i> Phone: 9842XXXXXX</p>
+                            <p><i class="fas fa-envelope"></i> Email: membership@fcanmorang.org.np</p>
+                        </div>
+                    </div>
+                    
+                    <div class="department-card tender">
+                        <div class="department-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h3>Tender Department</h3>
+                        <p>Provides tender information, bid support, and tender-related queries.</p>
+                        <div class="department-contact">
+                            <p><i class="fas fa-user"></i> Contact: Shyam Yadav</p>
+                            <p><i class="fas fa-phone"></i> Phone: 9851XXXXXX</p>
+                            <p><i class="fas fa-envelope"></i> Email: tender@fcanmorang.org.np</p>
+                        </div>
+                    </div>
+                    
+                    <div class="department-card training">
+                        <div class="department-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Training Department</h3>
+                        <p>Organizes workshops, training programs, and skill development courses.</p>
+                        <div class="department-contact">
+                            <p><i class="fas fa-user"></i> Contact: Sita Karki</p>
+                            <p><i class="fas fa-phone"></i> Phone: 9861XXXXXX</p>
+                            <p><i class="fas fa-envelope"></i> Email: training@fcanmorang.org.np</p>
+                        </div>
+                    </div>
+                    
+                    <div class="department-card legal">
+                        <div class="department-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>Legal Department</h3>
+                        <p>Provides legal advice, contract review, and dispute resolution support.</p>
+                        <div class="department-contact">
+                            <p><i class="fas fa-user"></i> Contact: Krishna Thapa</p>
+                            <p><i class="fas fa-phone"></i> Phone: 9843XXXXXX</p>
+                            <p><i class="fas fa-envelope"></i> Email: legal@fcanmorang.org.np</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Office Hours -->
+            <div class="office-hours">
+                <h3><i class="far fa-clock"></i> Office Hours & Holidays</h3>
+                <table class="hours-table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Opening Hours</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sunday - Thursday</td>
+                            <td>10:00 AM - 5:00 PM</td>
+                            <td>Regular Office Hours</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>10:00 AM - 3:00 PM</td>
+                            <td>Short Day</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>Closed</td>
+                            <td>Weekly Holiday</td>
+                        </tr>
+                        <tr>
+                            <td>Public Holidays</td>
+                            <td>Closed</td>
+                            <td>As per government calendar</td>
+                        </tr>
+                        <tr>
+                            <td>Emergency</td>
+                            <td>24/7 on call</td>
+                            <td>For urgent matters only</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Social Media -->
+            <div class="social-media">
+                <h3>Connect With Us on Social Media</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="#" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-icon linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                    <a href="#" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo-small.png" alt="FCAN Morang">
+                        <h3>FCAN Morang</h3>
+                    </div>
+                    <p>Federation of Contractors' Associations of Nepal, Morang District Chapter. Representing construction professionals in Morang since 1995.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="committee.html"><i class="fas fa-chevron-right"></i> Executive Committee</a></li>
+                        <li><a href="members.html"><i class="fas fa-chevron-right"></i> Members Directory</a></li>
+                        <li><a href="tenders.html"><i class="fas fa-chevron-right"></i> Tender Notices</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="resources.html"><i class="fas fa-chevron-right"></i> Documents & Forms</a></li>
+                        <li><a href="resources.html#laws"><i class="fas fa-chevron-right"></i> Construction Laws</a></li>
+                        <li><a href="resources.html#guidelines"><i class="fas fa-chevron-right"></i> Guidelines</a></li>
+                        <li><a href="news.html"><i class="fas fa-chevron-right"></i> News & Updates</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Photo Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info-footer">
+                        <p><i class="fas fa-map-marker-alt"></i> FCAN Morang Office,<br>Biratnagar-13, Morang, Nepal</p>
+                        <p><i class="fas fa-phone"></i> 021-123456, 021-654321</p>
+                        <p><i class="fas fa-envelope"></i> info@fcanmorang.org.np</p>
+                        <p><i class="far fa-clock"></i> Sun-Fri: 10:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2024 FCAN Morang District Chapter. All Rights Reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="https://fcan.org.np" target="_blank">FCAN National</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Contact Form Submission
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Basic form validation
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value.trim();
+                    
+                    if (!name || !email || !subject || !message) {
+                        alert('Please fill all required fields marked with *');
+                        return;
+                    }
+                    
+                    // Email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('Please enter a valid email address');
+                        return;
+                    }
+                    
+                    // Get submit button
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    // Show loading state
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate form submission (in real implementation, use AJAX)
+                    setTimeout(() => {
+                        // Show success message
+                        alert('Thank you for your message! We will contact you soon.');
+                        
+                        // Reset form
+                        this.reset();
+                        
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 1500);
+                });
+            }
+            
+            // Social media click handlers
+            const socialIcons = document.querySelectorAll('.social-icon');
+            socialIcons.forEach(icon => {
+                icon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const platform = this.querySelector('span').textContent;
+                    alert(`This would open our ${platform} page. In a real implementation, actual social media links would be used.`);
+                });
+            });
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

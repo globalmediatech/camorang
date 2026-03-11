@@ -1,0 +1,60 @@
+/* FCAN Official Colors - Based on FCAN Nepal website */
+:root {
+    /* Primary Colors */
+    --fcan-blue: #1e3a6e;
+    --fcan-light-blue: #0d6efd;
+    --fcan-dark-blue: #0a58ca;
+    
+    /* Secondary Colors */
+    --fcan-orange: #fd7e14;
+    --fcan-yellow: #ffc107;
+    --fcan-green: #198754;
+    --fcan-red: #dc3545;
+    
+    /* Neutral Colors */
+    --fcan-white: #ffffff;
+    --fcan-light: #f8f9fa;
+    --fcan-gray: #6c757d;
+    --fcan-dark: #212529;
+    --fcan-black: #000000;
+    
+    /* Background Colors */
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --bg-dark: #343a40;
+    
+    /* Text Colors */
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --text-light: #f8f9fa;
+    --text-dark: #212529;
+    
+    /* Border Colors */
+    --border-color: #dee2e6;
+    --border-light: #e9ecef;
+    --border-dark: #adb5bd;
+    
+    /* Shadow Colors */
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+    
+    /* Gradient Colors */
+    --gradient-primary: linear-gradient(135deg, var(--fcan-blue), var(--fcan-light-blue));
+    --gradient-dark: linear-gradient(135deg, var(--fcan-dark-blue), var(--fcan-blue));
+    
+    /* Status Colors */
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --info: #17a2b8;
+    
+    /* Hover Colors */
+    --hover-blue: #0b5ed7;
+    --hover-dark-blue: #0a58ca;
+    --hover-orange: #fd9843;
+    
+    /* Transparency */
+    --transparent-blue: rgba(30, 58, 110, 0.1);
+    --transparent-light-blue: rgba(13, 110, 253, 0.1);
+}

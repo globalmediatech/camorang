@@ -1,0 +1,438 @@
+/* Responsive Design Styles */
+
+/* Large Devices (Desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+    
+    .quick-links-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .content-grid {
+        gap: 30px;
+    }
+    
+    .footer-grid {
+        gap: 30px;
+    }
+    
+    .objectives-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Medium Devices (Tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    .container {
+        max-width: 720px;
+    }
+    
+    .header-container {
+        flex-wrap: wrap;
+    }
+    
+    .header-right {
+        width: 100%;
+        margin-top: 15px;
+    }
+    
+    .national-link {
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    
+    .main-nav {
+        display: none;
+        width: 100%;
+        margin-top: 15px;
+    }
+    
+    .main-nav.active {
+        display: block;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        background-color: var(--fcan-white);
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 5px 15px var(--shadow-medium);
+    }
+    
+    .nav-menu > li {
+        margin-bottom: 5px;
+    }
+    
+    .nav-menu > li > a {
+        padding: 12px 15px;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: var(--bg-light);
+        margin-top: 5px;
+        display: none;
+    }
+    
+    .dropdown:hover .dropdown-menu,
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+    
+    .hero-banner {
+        height: 400px;
+    }
+    
+    .hero-content {
+        padding: 30px;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .vision-mission-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .objectives-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .municipality-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .benefits-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .benefits-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .document-downloads {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .section-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .about-image img {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+/* Small Devices (Landscape Phones, less than 768px) */
+@media (max-width: 767.98px) {
+    .container {
+        max-width: 540px;
+    }
+    
+    .top-bar-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .contact-info span {
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+    
+    .social-links a {
+        margin: 0 8px;
+    }
+    
+    .logo {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .logo a {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .main-logo {
+        height: 50px;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo-text p {
+        font-size: 0.8rem;
+    }
+    
+    .hero-banner {
+        height: 350px;
+    }
+    
+    .hero-content {
+        padding: 20px;
+        width: 95%;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .quick-links {
+        padding: 30px 0;
+        margin-top: -30px;
+    }
+    
+    .quick-links-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .news-card {
+        flex-direction: column;
+    }
+    
+    .news-date {
+        min-width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .news-date .day,
+    .news-date .month {
+        display: inline-block;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .stat-item {
+        padding: 15px;
+    }
+    
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+    
+    .tenders-table {
+        overflow-x: auto;
+    }
+    
+    .tenders-table table {
+        min-width: 600px;
+    }
+    
+    .page-header {
+        padding: 40px 0 30px;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .about-container {
+        padding: 25px;
+    }
+    
+    .municipality-list ul {
+        column-count: 1;
+    }
+    
+    .document-downloads {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .footer-links a {
+        margin: 0 10px;
+    }
+    
+    .breadcrumb {
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra Small Devices (Portrait Phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-banner {
+        height: 300px;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.3rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+    
+    .btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .main-content {
+        padding: 40px 0;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .event-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .event-date {
+        margin-right: 0;
+        margin-bottom: 15px;
+        align-self: center;
+    }
+    
+    .about-home {
+        padding: 25px;
+    }
+    
+    .timeline {
+        padding-left: 20px;
+    }
+    
+    .timeline-year {
+        left: -25px;
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+    
+    .timeline-content {
+        margin-left: 35px;
+        padding: 15px;
+    }
+    
+    .vision-card,
+    .mission-card,
+    .values-card {
+        padding: 20px;
+    }
+    
+    .objective-item {
+        padding: 20px;
+    }
+    
+    .join-cta {
+        padding: 20px;
+    }
+    
+    .contact-info-footer p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .top-bar,
+    .main-header,
+    .hero-banner,
+    .quick-links,
+    .main-footer,
+    .mobile-menu-toggle,
+    .view-all,
+    .btn {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+    }
+    
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: #000;
+        page-break-after: avoid;
+    }
+    
+    .page-content,
+    .about-container {
+        padding: 0;
+        box-shadow: none;
+        background: #fff;
+        }}

@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Notices - FCAN Morang</title>
+    <link rel="stylesheet" href="../css/fcan-colors.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../images/new-logo-fcan.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Same Header as index.html -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> 021-123456</span>
+                    <span><i class="fas fa-envelope"></i> info@fcanmorang.org.np</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Biratnagar, Morang</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="../images/new-logo-fcan.png" alt="FCAN Morang" class="main-logo">
+                        <div class="logo-text">
+                            <h1>FCAN Morang</h1>
+                            <p>Federation of Contractors' Associations of Nepal<br>Morang District Chapter</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="header-right">
+                    <div class="national-link">
+                        <a href="https://fcan.org.np" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            FCAN National Headquarters
+                        </a>
+                    </div>
+                    
+                    <nav class="main-nav">
+                        <ul class="nav-menu">
+                            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li class="dropdown">
+                                <a href="#"><i class="fas fa-info-circle"></i> About <i class="fas fa-chevron-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="about.html">About FCAN Morang</a></li>
+                                    <li><a href="committee.html">Executive Committee</a></li>
+                                    <li><a href="about.html#history">History</a></li>
+                                    <li><a href="about.html#constitution">Constitution</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="members.html"><i class="fas fa-users"></i> Members</a></li>
+                            <li><a href="news.html" class="active"><i class="fas fa-newspaper"></i> News & Notices</a></li>
+                            <li><a href="tenders.html"><i class="fas fa-file-contract"></i> Tenders</a></li>
+                            <li><a href="resources.html"><i class="fas fa-book"></i> Resources</a></li>
+                            <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                            <li><a href="contact.html"><i class="fas fa-address-book"></i> Contact</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <button class="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>News & Notices</h1>
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i>
+                <span>News & Notices</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- News Content -->
+    <main class="page-content">
+        <div class="container">
+            <div class="news-container">
+                <!-- News Tabs -->
+                <div class="news-tabs">
+                    <button class="news-tab-btn active" data-category="all">
+                        <i class="fas fa-newspaper"></i> All News
+                    </button>
+                    <button class="news-tab-btn" data-category="news">
+                        <i class="fas fa-bullhorn"></i> News
+                    </button>
+                    <button class="news-tab-btn" data-category="notices">
+                        <i class="fas fa-clipboard-check"></i> Official Notices
+                    </button>
+                    <button class="news-tab-btn" data-category="events">
+                        <i class="fas fa-calendar-alt"></i> Events
+                    </button>
+                    <button class="news-tab-btn" data-category="circulars">
+                        <i class="fas fa-file-alt"></i> Circulars
+                    </button>
+                </div>
+
+                <!-- Search and Filter -->
+                <div class="news-tools">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search news..." id="news-search">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="date-filter">
+                        <label for="news-date">Filter by Date:</label>
+                        <input type="month" id="news-date">
+                    </div>
+                    
+                    <button class="btn btn-secondary" id="reset-filters">
+                        <i class="fas fa-redo"></i> Reset Filters
+                    </button>
+                </div>
+
+                <!-- News Grid -->
+                <div class="news-archive">
+                    <!-- News Item 1 -->
+                    <article class="news-item" data-category="notices" data-date="2024-12-15">
+                        <div class="news-item-header">
+                            <div class="news-date">
+                                <span class="day">15</span>
+                                <span class="month">Dec</span>
+                                <span class="year">2024</span>
+                            </div>
+                            <div class="news-category">
+                                <span class="category-badge notice">Official Notice</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-item-content">
+                            <h3><a href="news-detail.html">Annual General Meeting 2024</a></h3>
+                            <p class="news-excerpt">FCAN Morang announces its 29th Annual General Meeting to be held on December 28, 2024 at Hotel Everest, Biratnagar. All members are requested to attend...</p>
+                            
+                            <div class="news-meta">
+                                <span><i class="far fa-clock"></i> 10:00 AM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Hotel Everest, Biratnagar</span>
+                                <span><i class="fas fa-download"></i> <a href="#">Download Notice</a></span>
+                            </div>
+                            
+                            <div class="news-actions">
+                                <a href="news-detail.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <button class="share-btn" data-title="Annual General Meeting 2024" data-url="news-detail.html">
+                                    <i class="fas fa-share-alt"></i> Share
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- News Item 2 -->
+                    <article class="news-item" data-category="events" data-date="2024-12-20">
+                        <div class="news-item-header">
+                            <div class="news-date">
+                                <span class="day">20</span>
+                                <span class="month">Dec</span>
+                                <span class="year">2024</span>
+                            </div>
+                            <div class="news-category">
+                                <span class="category-badge event">Training Event</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-item-content">
+                            <h3><a href="news-detail.html">Building Code Compliance Workshop</a></h3>
+                            <p class="news-excerpt">FCAN Morang in collaboration with Department of Urban Development is organizing a one-day workshop on "Building Code Compliance and Safety Standards" for contractors...</p>
+                            
+                            <div class="news-meta">
+                                <span><i class="far fa-clock"></i> 9:00 AM - 4:00 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> FCAN Conference Hall</span>
+                                <span><i class="fas fa-users"></i> Limited to 50 participants</span>
+                            </div>
+                            
+                            <div class="news-actions">
+                                <a href="news-detail.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <a href="registration.html" class="btn-register">Register Now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- News Item 3 -->
+                    <article class="news-item" data-category="news" data-date="2024-12-10">
+                        <div class="news-item-header">
+                            <div class="news-date">
+                                <span class="day">10</span>
+                                <span class="month">Dec</span>
+                                <span class="year">2024</span>
+                            </div>
+                            <div class="news-category">
+                                <span class="category-badge news">Latest News</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-item-content">
+                            <h3><a href="news-detail.html">New Construction Guidelines Released</a></h3>
+                            <p class="news-excerpt">The Ministry of Urban Development has released updated construction guidelines for Morang district. Key changes include new earthquake-resistant specifications and green building incentives...</p>
+                            
+                            <div class="news-meta">
+                                <span><i class="fas fa-user"></i> Ministry of Urban Development</span>
+                                <span><i class="fas fa-download"></i> <a href="#">Download Guidelines</a></span>
+                            </div>
+                            
+                            <div class="news-actions">
+                                <a href="news-detail.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <button class="print-btn"><i class="fas fa-print"></i> Print</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- News Item 4 -->
+                    <article class="news-item" data-category="circulars" data-date="2024-12-05">
+                        <div class="news-item-header">
+                            <div class="news-date">
+                                <span class="day">05</span>
+                                <span class="month">Dec</span>
+                                <span class="year">2024</span>
+                            </div>
+                            <div class="news-category">
+                                <span class="category-badge circular">Circular</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-item-content">
+                            <h3><a href="news-detail.html">Membership Renewal Reminder</a></h3>
+                            <p class="news-excerpt">This is to remind all members that the annual membership renewal for the fiscal year 2081/82 is due by Poush 15, 2081. Late renewals will incur additional charges...</p>
+                            
+                            <div class="news-meta">
+                                <span><i class="far fa-calendar"></i> Deadline: Dec 30, 2024</span>
+                                <span><i class="fas fa-download"></i> <a href="#">Renewal Form</a></span>
+                            </div>
+                            
+                            <div class="news-actions">
+                                <a href="news-detail.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <a href="members.html#documents" class="btn-download">Download Form</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- News Item 5 -->
+                    <article class="news-item" data-category="events" data-date="2025-01-05">
+                        <div class="news-item-header">
+                            <div class="news-date">
+                                <span class="day">05</span>
+                                <span class="month">Jan</span>
+                                <span class="year">2025</span>
+                            </div>
+                            <div class="news-category">
+                                <span class="category-badge event">Social Event</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-item-content">
+                            <h3><a href="news-detail.html">New Year Interaction Program</a></h3>
+                            <p class="news-excerpt">FCAN Morang cordially invites all members and their families to the New Year Interaction Program 2025. This event will feature cultural programs, dinner, and networking opportunities...</p>
+                            
+                            <div class="news-meta">
+                                <span><i class="far fa-clock"></i> 11:00 AM - 3:00 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> FCAN Conference Hall</span>
+                                <span><i class="fas fa-user-friends"></i> Members & Families</span>
+                            </div>
+                            
+                            <div class="news-actions">
+                                <a href="news-detail.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <a href="registration.html" class="btn-register">RSVP Now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- News Item 6 -->
+                    <article class="news-item" data-category="news" data-date="2024-11-28">
+                        <div class="news-item-header">
+                            <div class="news-date">
+                                <span class="day">28</span>
+                                <span class="month">Nov</span>
+                                <span class="year">2024</span>
+                            </div>
+                            <div class="news-category">
+                                <span class="category-badge news">Industry News</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-item-content">
+                            <h3><a href="news-detail.html">Construction Material Price Update</a></h3>
+                            <p class="news-excerpt">FCAN Morang in collaboration with Morang Chamber of Commerce has released the updated construction material price list for December 2024. Cement prices have decreased by 2% while steel prices remain stable...</p>
+                            
+                            <div class="news-meta">
+                                <span><i class="fas fa-chart-line"></i> Price Analysis</span>
+                                <span><i class="fas fa-download"></i> <a href="#">Price List PDF</a></span>
+                            </div>
+                            
+                            <div class="news-actions">
+                                <a href="news-detail.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <button class="share-btn"><i class="fas fa-share-alt"></i> Share</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Pagination -->
+                <div class="news-pagination">
+                    <button class="page-btn prev" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    
+                    <div class="page-numbers">
+                        <span class="page-number active">1</span>
+                        <span class="page-number">2</span>
+                        <span class="page-number">3</span>
+                        <span class="page-dots">...</span>
+                        <span class="page-number">8</span>
+                    </div>
+                    
+                    <button class="page-btn next">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Newsletter Subscription -->
+                <div class="newsletter-section">
+                    <div class="newsletter-content">
+                        <div class="newsletter-text">
+                            <h3><i class="fas fa-envelope"></i> Stay Updated</h3>
+                            <p>Subscribe to our newsletter to receive the latest news, events, and updates directly in your inbox.</p>
+                        </div>
+                        
+                        <form class="newsletter-form">
+                            <div class="form-group">
+                                <input type="email" placeholder="Enter your email address" required>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> Subscribe
+                                </button>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" id="newsletter-consent" required>
+                                <label for="newsletter-consent">
+                                    I agree to receive newsletters and updates from FCAN Morang
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Same Footer as index.html -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo-small.png" alt="FCAN Morang">
+                        <h3>FCAN Morang</h3>
+                    </div>
+                    <p>Federation of Contractors' Associations of Nepal, Morang District Chapter. Representing construction professionals in Morang since 1995.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="committee.html"><i class="fas fa-chevron-right"></i> Executive Committee</a></li>
+                        <li><a href="members.html"><i class="fas fa-chevron-right"></i> Members Directory</a></li>
+                        <li><a href="tenders.html"><i class="fas fa-chevron-right"></i> Tender Notices</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="resources.html"><i class="fas fa-chevron-right"></i> Documents & Forms</a></li>
+                        <li><a href="resources.html#laws"><i class="fas fa-chevron-right"></i> Construction Laws</a></li>
+                        <li><a href="resources.html#guidelines"><i class="fas fa-chevron-right"></i> Guidelines</a></li>
+                        <li><a href="news.html"><i class="fas fa-chevron-right"></i> News & Updates</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Photo Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="contact-info-footer">
+                        <p><i class="fas fa-map-marker-alt"></i> FCAN Morang Office,<br>Biratnagar-13, Morang, Nepal</p>
+                        <p><i class="fas fa-phone"></i> 021-123456, 021-654321</p>
+                        <p><i class="fas fa-envelope"></i> info@fcanmorang.org.np</p>
+                        <p><i class="far fa-clock"></i> Sun-Fri: 10:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2024 FCAN Morang District Chapter. All Rights Reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="https://fcan.org.np" target="_blank">FCAN National</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- News Page Specific Styles -->
+    <style>
+        .news-container {
+            background-color: var(--fcan-white);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 3px 10px var(--shadow-light);
+        }
+
+        /* News Tabs */
+        .news-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .news-tab-btn {
+            padding: 12px 20px;
+            background-color: var(--bg-light);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .news-tab-btn:hover {
+            background-color: var(--transparent-blue);
+            color: var(--fcan-blue);
+        }
+
+        .news-tab-btn.active {
+            background-color: var(--fcan-blue);
+            color: white;
+        }
+
+        /* News Tools */
+        .news-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            align-items: flex-end;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px 0 0 4px;
+            font-size: 0.95rem;
+        }
+
+        .search-box button {
+            background-color: var(--fcan-blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .date-filter {
+            min-width: 200px;
+        }
+
+        .date-filter label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--fcan-blue);
+        }
+
+        .date-filter input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        /* News Archive */
+        .news-archive {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .news-item {
+            display: flex;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--fcan-blue);
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--shadow-medium);
+        }
+
+        .news-item-header {
+            min-width: 100px;
+            background-color: var(--fcan-blue);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .news-date {
+            margin-bottom: 10px;
+        }
+
+        .news-date .day {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+
+        .news-date .month {
+            font-size: 1rem;
+            text-transform: uppercase;
+            display: block;
+            margin: 5px 0;
+        }
+
+        .news-date .year {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .news-category {
+            margin-top: 10px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .category-badge.notice {
+            background-color: var(--fcan-orange);
+            color: white;
+        }
+
+        .category-badge.event {
+            background-color: var(--fcan-green);
+            color: white;
+        }
+
+        .category-badge.news {
+            background-color: var(--fcan-light-blue);
+            color: white;
+        }
+
+        .category-badge.circular {
+            background-color: var(--fcan-purple);
+            color: white;
+        }
+
+        .news-item-content {
+            flex: 1;
+            padding: 25px;
+        }
+
+        .news-item-content h3 {
+            margin-bottom: 15px;
+            color: var(--fcan-blue);
+            font-size: 1.3rem;
+        }
+
+        .news-item-content h3 a {
+            color: inherit;
+        }
+
+        .news-item-content h3 a:hover {
+            color: var(--fcan-light-blue);
+        }
+
+        .news-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .news-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .news-meta i {
+            margin-right: 5px;
+            color: var(--fcan-light-blue);
+        }
+
+        .news-meta a {
+            color: var(--fcan-light-blue);
+        }
+
+        .news-meta a:hover {
+            text-decoration: underline;
+        }
+
+        .news-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .read-more {
+            color: var(--fcan-light-blue);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .read-more:hover {
+            color: var(--fcan-dark-blue);
+        }
+
+        .btn-register {
+            background-color: var(--fcan-green);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-register:hover {
+            background-color: #157347;
+            color: white;
+        }
+
+        .share-btn, .print-btn, .btn-download {
+            background-color: var(--bg-light);
+            color: var(--fcan-blue);
+            border: 1px solid var(--border-color);
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover, .print-btn:hover, .btn-download:hover {
+            background-color: var(--fcan-blue);
+            color: white;
+            border-color: var(--fcan-blue);
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--fcan-blue), var(--fcan-dark-blue));
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .newsletter-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .newsletter-text h3 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .newsletter-text h3 i {
+            margin-right: 10px;
+            color: var(--fcan-orange);
+        }
+
+        .newsletter-text p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 400px;
+        }
+
+        .newsletter-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .newsletter-form .form-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            white-space: nowrap;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .form-check input {
+            margin-top: 5px;
+        }
+
+        .form-check label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+        }
+
+        /* Pagination */
+        .news-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991.98px) {
+            .news-item {
+                flex-direction: column;
+            }
+            
+            .news-item-header {
+                min-width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+            }
+            
+            .news-date {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 0;
+            }
+            
+            .news-date .day,
+            .news-date .month,
+            .news-date .year {
+                display: inline;
+                font-size: 1rem;
+            }
+            
+            .news-category {
+                margin-top: 0;
+            }
+            
+            .newsletter-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .newsletter-text p {
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .news-container {
+                padding: 25px;
+            }
+            
+            .news-tools {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-box,
+            .date-filter {
+                min-width: auto;
+            }
+            
+            .news-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .news-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .newsletter-section {
+                padding: 25px;
+            }
+            
+            .newsletter-form .form-group {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .news-tabs {
+                flex-direction: column;
+            }
+            
+            .news-tab-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .news-item-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+
+    <script src="js/main.js"></script>
+    <script>
+        // News page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab filtering
+            const tabBtns = document.querySelectorAll('.news-tab-btn');
+            const newsItems = document.querySelectorAll('.news-item');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update active tab
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter news items
+                    newsItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'flex';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Search functionality
+            const newsSearch = document.getElementById('news-search');
+            if (newsSearch) {
+                newsSearch.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    newsItems.forEach(item => {
+                        const text = item.textContent.toLowerCase();
+                        const category = item.getAttribute('data-category');
+                        const activeCategory = document.querySelector('.news-tab-btn.active').getAttribute('data-category');
+                        
+                        // Check if item matches search and current category
+                        const matchesSearch = text.includes(searchTerm);
+                        const matchesCategory = activeCategory === 'all' || category === activeCategory;
+                        
+                        if (matchesSearch && matchesCategory) {
+                            item.style.display = 'flex';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            }
+            
+            // Date filtering
+            const dateFilter = document.getElementById('news-date');
+            if (dateFilter) {
+                dateFilter.addEventListener('change', function() {
+                    const selectedDate = this.value; // YYYY-MM format
+                    
+                    newsItems.forEach(item => {
+                        const itemDate = item.getAttribute('data-date');
+                        const matchesDate = selectedDate === '' || 
+                            itemDate.startsWith(selectedDate);
+                        
+                        if (matchesDate) {
+                            item.style.display = 'flex';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            }
+            
+            // Reset filters
+            const resetBtn = document.getElementById('reset-filters');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', function() {
+                    // Reset tabs
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabBtns[0].classList.add('active');
+                    
+                    // Reset search
+                    if (newsSearch) newsSearch.value = '';
+                    
+                    // Reset date filter
+                    if (dateFilter) dateFilter.value = '';
+                    
+                    // Show all items
+                    newsItems.forEach(item => {
+                        item.style.display = 'flex';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 100);
+                    });
+                });
+            }
+            
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = this.querySelector('input[type="email"]').value;
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    // Show loading state
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        // Show success message
+                        alert('Thank you for subscribing to FCAN Morang newsletter!');
+                        
+                        // Reset form
+                        this.reset();
+                        
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, 1500);
+                });
+            }
+            
+            // Share functionality
+            const shareBtns = document.querySelectorAll('.share-btn');
+            shareBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const title = this.getAttribute('data-title') || document.title;
+                    const url = this.getAttribute('data-url') || window.location.href;
+                    
+                    if (navigator.share) {
+                        navigator.share({
+                            title: title,
+                            url: url
+                        });
+                    } else {
+                        // Fallback: Copy to clipboard
+                        navigator.clipboard.writeText(url).then(() => {
+                            alert('Link copied to clipboard!');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

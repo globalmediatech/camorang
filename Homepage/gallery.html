@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Gallery - FCAN Morang</title>
+    <link rel="stylesheet" href="../css/fcan-colors.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" href="../images/new-logo-fcan.png" type="image/x-icon" />
+    <style>
+      /* Gallery Page Specific Styles */
+      .gallery-container {
+        padding: 40px 0;
+      }
+
+      .gallery-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .gallery-header h1 {
+        color: var(--fcan-blue);
+        margin-bottom: 15px;
+      }
+
+      .gallery-header p {
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Gallery Filter */
+      .gallery-filter {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--border-color);
+      }
+
+      .filter-btn {
+        padding: 10px 20px;
+        background-color: var(--bg-light);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 500;
+        color: var(--text-secondary);
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover {
+        background-color: var(--transparent-blue);
+        border-color: var(--fcan-light-blue);
+        color: var(--fcan-blue);
+      }
+
+      .filter-btn.active {
+        background-color: var(--fcan-blue);
+        border-color: var(--fcan-blue);
+        color: white;
+      }
+
+      /* Photo Gallery Grid */
+      .photo-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+      }
+
+      .gallery-item {
+        background-color: var(--fcan-white);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px var(--shadow-light);
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-light);
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px var(--shadow-medium);
+      }
+
+      .gallery-image {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+      }
+
+      .gallery-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover .gallery-image img {
+        transform: scale(1.05);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(30, 58, 110, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+
+      .view-btn {
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: var(--fcan-blue);
+        transition: all 0.3s ease;
+      }
+
+      .view-btn:hover {
+        background-color: var(--fcan-orange);
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .gallery-info {
+        padding: 20px;
+      }
+
+      .gallery-info h3 {
+        margin-bottom: 10px;
+        color: var(--fcan-blue);
+        font-size: 1.2rem;
+      }
+
+      .gallery-date {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .gallery-date i {
+        color: var(--fcan-light-blue);
+      }
+
+      .gallery-caption {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      /* Video Gallery */
+      .video-gallery-section {
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 2px solid var(--border-color);
+      }
+
+      .video-gallery-section h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: var(--fcan-blue);
+      }
+
+      .video-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 25px;
+      }
+
+      .video-item {
+        background-color: var(--fcan-white);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px var(--shadow-light);
+        transition: all 0.3s ease;
+      }
+
+      .video-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px var(--shadow-medium);
+      }
+
+      .video-thumbnail {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .video-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .play-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: var(--fcan-red);
+        transition: all 0.3s ease;
+      }
+
+      .video-item:hover .play-btn {
+        background-color: var(--fcan-red);
+        color: white;
+      }
+
+      .video-info {
+        padding: 20px;
+      }
+
+      .video-info h3 {
+        margin-bottom: 10px;
+        color: var(--fcan-blue);
+        font-size: 1.2rem;
+      }
+
+      .video-duration {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .video-duration i {
+        color: var(--fcan-light-blue);
+      }
+
+      .video-description {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      /* Lightbox Styles */
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .lightbox.active {
+        display: flex;
+        opacity: 1;
+      }
+
+      .lightbox-content {
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+      }
+
+      .lightbox-image {
+        max-width: 100%;
+        max-height: 80vh;
+        display: block;
+        border-radius: 8px;
+      }
+
+      .lightbox-caption {
+        color: white;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 1.1rem;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .lightbox-nav:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .lightbox-prev {
+        left: -70px;
+      }
+
+      .lightbox-next {
+        right: -70px;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 991.98px) {
+        .photo-gallery {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
+        }
+
+        .video-gallery {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        .lightbox-prev {
+          left: 10px;
+        }
+
+        .lightbox-next {
+          right: 10px;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .photo-gallery {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 15px;
+        }
+
+        .video-gallery {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-filter {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .filter-btn {
+          width: 200px;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 575.98px) {
+        .photo-gallery {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-image {
+          height: 200px;
+        }
+
+        .video-thumbnail {
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <div class="top-bar">
+      <div class="container">
+        <div class="top-bar-content">
+          <div class="contact-info">
+            <span><i class="fas fa-phone"></i> 021-123456</span>
+            <span><i class="fas fa-envelope"></i> info@fcanmorang.org.np</span>
+            <span
+              ><i class="fas fa-map-marker-alt"></i> Biratnagar, Morang</span
+            >
+          </div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="main-header">
+      <div class="container">
+        <div class="header-container">
+          <div class="logo">
+            <a href="index.html">
+              <img src="../images/new-logo-fcan.png" alt="FCAN Morang" class="main-logo" />
+              <div class="logo-text">
+                <h1>FCAN Morang</h1>
+                <p>
+                  Federation of Contractors' Associations of Nepal<br />Morang
+                  District Chapter
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div class="header-right">
+            <div class="national-link">
+              <a href="https://fcan.org.np" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                FCAN National Headquarters
+              </a>
+            </div>
+
+            <nav class="main-nav">
+              <ul class="nav-menu">
+                <li>
+                  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="dropdown">
+                  <a href="#"
+                    ><i class="fas fa-info-circle"></i> About
+                    <i class="fas fa-chevron-down"></i
+                  ></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="about.html">About FCAN Morang</a></li>
+                    <li><a href="committee.html">Executive Committee</a></li>
+                    <li><a href="about.html#history">History</a></li>
+                    <li><a href="about.html#constitution">Constitution</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="members.html"
+                    ><i class="fas fa-users"></i> Members</a
+                  >
+                </li>
+                <li>
+                  <a href="news.html"
+                    ><i class="fas fa-newspaper"></i> News & Notices</a
+                  >
+                </li>
+                <li>
+                  <a href="tenders.html"
+                    ><i class="fas fa-file-contract"></i> Tenders</a
+                  >
+                </li>
+                <li>
+                  <a href="resources.html"
+                    ><i class="fas fa-book"></i> Resources</a
+                  >
+                </li>
+                <li>
+                  <a href="gallery.html" class="active"
+                    ><i class="fas fa-images"></i> Gallery</a
+                  >
+                </li>
+                <li>
+                  <a href="contact.html"
+                    ><i class="fas fa-address-book"></i> Contact</a
+                  >
+                </li>
+              </ul>
+            </nav>
+
+            <button class="mobile-menu-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Photo Gallery</h1>
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i>
+          <span>Gallery</span>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Gallery Content -->
+    <main class="page-content">
+      <div class="container">
+        <div class="gallery-header">
+          <h1>FCAN Morang Gallery</h1>
+          <p>
+            Explore our collection of photos and videos from various events,
+            meetings, and activities organized by FCAN Morang District Chapter.
+          </p>
+        </div>
+
+        <!-- Gallery Filter -->
+        <div class="gallery-filter">
+          <button class="filter-btn active" data-filter="all">
+            All Photos
+          </button>
+          <button class="filter-btn" data-filter="events">Events</button>
+          <button class="filter-btn" data-filter="meetings">Meetings</button>
+          <button class="filter-btn" data-filter="training">Training</button>
+          <button class="filter-btn" data-filter="projects">Projects</button>
+          <button class="filter-btn" data-filter="visits">
+            Official Visits
+          </button>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="photo-gallery">
+          <!-- Photo 1 -->
+          <div class="gallery-item" data-category="events">
+            <div class="gallery-image">
+              <img
+                src="https://via.placeholder.com/400x300"
+                alt="Annual General Meeting 2024"
+                data-full="https://via.placeholder.com/1200x800"
+              />
+              <div class="gallery-overlay">
+                <button class="view-btn">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Annual General Meeting 2024</h3>
+              <div class="gallery-date">
+                <i class="far fa-calendar"></i> December 15, 2024
+              </div>
+              <p class="gallery-caption">
+                29th Annual General Meeting of FCAN Morang held at Hotel
+                Everest, Biratnagar
+              </p>
+            </div>
+          </div>
+
+          <!-- Photo 2 -->
+          <div class="gallery-item" data-category="training">
+            <div class="gallery-image">
+              <img
+                src="https://via.placeholder.com/400x300"
+                alt="Building Code Workshop"
+                data-full="https://via.placeholder.com/1200x800"
+              />
+              <div class="gallery-overlay">
+                <button class="view-btn">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Building Code Workshop</h3>
+              <div class="gallery-date">
+                <i class="far fa-calendar"></i> December 20, 2024
+              </div>
+              <p class="gallery-caption">
+                Training workshop on Nepal Building Code compliance for
+                contractors
+              </p>
+            </div>
+          </div>
+
+          <!-- Photo 3 -->
+          <div class="gallery-item" data-category="meetings">
+            <div class="gallery-image">
+              <img
+                src="https://via.placeholder.com/400x300"
+                alt="Executive Committee Meeting"
+                data-full="https://via.placeholder.com/1200x800"
+              />
+              <div class="gallery-overlay">
+                <button class="view-btn">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Executive Committee Meeting</h3>
+              <div class="gallery-date">
+                <i class="far fa-calendar"></i> December 5, 2024
+              </div>
+              <p class="gallery-caption">
+                Monthly meeting of FCAN Morang executive committee members
+              </p>
+            </div>
+          </div>
+
+          <!-- Photo 4 -->
+          <div class="gallery-item" data-category="projects">
+            <div class="gallery-image">
+              <img
+                src="https://via.placeholder.com/400x300"
+                alt="Road Construction Project"
+                data-full="https://via.placeholder.com/1200x800"
+              />
+              <div class="gallery-overlay">
+                <button class="view-btn">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Road Construction Project</h3>
+              <div class="gallery-date">
+                <i class="far fa-calendar"></i> November 28, 2024
+              </div>
+              <p class="gallery-caption">
+                Site visit to ongoing road construction project in Letang
+                Municipality
+              </p>
+            </div>
+          </div>
+
+          <!-- Photo 5 -->
+          <div class="gallery-item" data-category="visits">
+            <div class="gallery-image">
+              <img
+                src="https://via.placeholder.com/400x300"
+                alt="Minister's Visit"
+                data-full="https://via.placeholder.com/1200x800"
+              />
+              <div class="gallery-overlay">
+                <button class="view-btn">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Minister's Visit</h3>
+              <div class="gallery-date">
+                <i class="far fa-calendar"></i> November 15, 2024
+              </div>
+              <p class="gallery-caption">
+                Honorable Minister's visit to FCAN Morang office for discussion
+              </p>
+            </div>
+          </div>
+
+          <!-- Photo 6 -->
+          <div class="gallery-item" data-category="events">
+            <div class="gallery-image">
+              <img
+                src="https://via.placeholder.com/400x300"
+                alt="New Year Program"
+                data-full="https://via.placeholder.com/1200x800"
+              />
+              <div class="gallery-overlay">
+                <button class="view-btn">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>New Year Interaction Program</h3>
+              <div class="gallery-date">
+                <i class="far fa-calendar"></i> January 5, 2024
+              </div>
+              <p class="gallery-caption">
+                New Year celebration and interaction program with members
+              </p>
+            </div>
+          </div>
+
+          <!-- Photo 7 -->
+          <div class="gallery-item" data-category="training">
+            <div class="gallery-image">
+              <img
+                src="https://via.placeholder.com/400x300"
+                alt="Safety Training"
+                data-full="https://via.placeholder.com/1200x800"
+              />
+              <div class="gallery-overlay">
+                <button class="view-btn">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Safety Training Program</h3>
+              <div class="gallery-date">
+                <i class="far fa-calendar"></i> October 25, 2024
+              </div>
+              <p class="gallery-caption">
+                Workshop on construction site safety and accident prevention
+              </p>
+            </div>
+          </div>
+
+          <!-- Photo 8 -->
+          <div class="gallery-item" data-category="projects">
+            <div class="gallery-image">
+              <img
+                src="https://via.placeholder.com/400x300"
+                alt="Bridge Construction"
+                data-full="https://via.placeholder.com/1200x800"
+              />
+              <div class="gallery-overlay">
+                <button class="view-btn">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Bridge Construction Site</h3>
+              <div class="gallery-date">
+                <i class="far fa-calendar"></i> October 10, 2024
+              </div>
+              <p class="gallery-caption">
+                Progress inspection of bridge construction project in Rangeli
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Gallery -->
+        <div class="video-gallery-section">
+          <h2>Video Gallery</h2>
+          <div class="video-gallery">
+            <!-- Video 1 -->
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <img
+                  src="https://via.placeholder.com/400x225"
+                  alt="AGM 2024 Highlights"
+                />
+                <button
+                  class="play-btn"
+                  data-video="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                >
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+              <div class="video-info">
+                <h3>AGM 2024 Highlights</h3>
+                <div class="video-duration">
+                  <i class="far fa-clock"></i> 5:42
+                </div>
+                <p class="video-description">
+                  Highlights from 29th Annual General Meeting of FCAN Morang
+                </p>
+              </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <img
+                  src="https://via.placeholder.com/400x225"
+                  alt="Interview with President"
+                />
+                <button
+                  class="play-btn"
+                  data-video="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                >
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+              <div class="video-info">
+                <h3>Interview with President</h3>
+                <div class="video-duration">
+                  <i class="far fa-clock"></i> 8:15
+                </div>
+                <p class="video-description">
+                  Exclusive interview with FCAN Morang President about future
+                  plans
+                </p>
+              </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="video-item">
+              <div class="video-thumbnail">
+                <img
+                  src="https://via.placeholder.com/400x225"
+                  alt="Construction Safety Tips"
+                />
+                <button
+                  class="play-btn"
+                  data-video="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                >
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+              <div class="video-info">
+                <h3>Construction Safety Tips</h3>
+                <div class="video-duration">
+                  <i class="far fa-clock"></i> 12:30
+                </div>
+                <p class="video-description">
+                  Essential safety tips for construction workers and site
+                  managers
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+      <div class="lightbox-content">
+        <button class="lightbox-close">
+          <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <img class="lightbox-image" src="" alt="" />
+        <div class="lightbox-caption"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">
+              <img src="images/logo-small.png" alt="FCAN Morang" />
+              <h3>FCAN Morang</h3>
+            </div>
+            <p>
+              Federation of Contractors' Associations of Nepal, Morang District
+              Chapter. Representing construction professionals in Morang since
+              1995.
+            </p>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li>
+                <a href="index.html"
+                  ><i class="fas fa-chevron-right"></i> Home</a
+                >
+              </li>
+              <li>
+                <a href="about.html"
+                  ><i class="fas fa-chevron-right"></i> About Us</a
+                >
+              </li>
+              <li>
+                <a href="committee.html"
+                  ><i class="fas fa-chevron-right"></i> Executive Committee</a
+                >
+              </li>
+              <li>
+                <a href="members.html"
+                  ><i class="fas fa-chevron-right"></i> Members Directory</a
+                >
+              </li>
+              <li>
+                <a href="tenders.html"
+                  ><i class="fas fa-chevron-right"></i> Tender Notices</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li>
+                <a href="resources.html"
+                  ><i class="fas fa-chevron-right"></i> Documents & Forms</a
+                >
+              </li>
+              <li>
+                <a href="resources.html#laws"
+                  ><i class="fas fa-chevron-right"></i> Construction Laws</a
+                >
+              </li>
+              <li>
+                <a href="resources.html#guidelines"
+                  ><i class="fas fa-chevron-right"></i> Guidelines</a
+                >
+              </li>
+              <li>
+                <a href="news.html"
+                  ><i class="fas fa-chevron-right"></i> News & Updates</a
+                >
+              </li>
+              <li>
+                <a href="gallery.html"
+                  ><i class="fas fa-chevron-right"></i> Photo Gallery</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <div class="contact-info-footer">
+              <p>
+                <i class="fas fa-map-marker-alt"></i> FCAN Morang Office,<br />Biratnagar-13,
+                Morang, Nepal
+              </p>
+              <p><i class="fas fa-phone"></i> 021-123456, 021-654321</p>
+              <p><i class="fas fa-envelope"></i> info@fcanmorang.org.np</p>
+              <p><i class="far fa-clock"></i> Sun-Fri: 10:00 AM - 5:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="copyright">
+            <p>
+              &copy; 2024 FCAN Morang District Chapter. All Rights Reserved.
+            </p>
+          </div>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="https://fcan.org.np" target="_blank">FCAN National</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Gallery Filter
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const galleryItems = document.querySelectorAll(".gallery-item");
+
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const filter = this.getAttribute("data-filter");
+
+            // Update active button
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            // Filter gallery items
+            galleryItems.forEach((item) => {
+              if (
+                filter === "all" ||
+                item.getAttribute("data-category") === filter
+              ) {
+                item.style.display = "block";
+                setTimeout(() => {
+                  item.style.opacity = "1";
+                  item.style.transform = "translateY(0)";
+                }, 100);
+              } else {
+                item.style.opacity = "0";
+                item.style.transform = "translateY(20px)";
+                setTimeout(() => {
+                  item.style.display = "none";
+                }, 300);
+              }
+            });
+          });
+        });
+
+        // Lightbox
+        const lightbox = document.querySelector(".lightbox");
+        const lightboxImage = document.querySelector(".lightbox-image");
+        const lightboxCaption = document.querySelector(".lightbox-caption");
+        const lightboxClose = document.querySelector(".lightbox-close");
+        const lightboxPrev = document.querySelector(".lightbox-prev");
+        const lightboxNext = document.querySelector(".lightbox-next");
+        const viewBtns = document.querySelectorAll(".view-btn");
+        const playBtns = document.querySelectorAll(".play-btn");
+
+        let currentImageIndex = 0;
+        let images = [];
+
+        // Collect all gallery images
+        galleryItems.forEach((item) => {
+          const img = item.querySelector("img");
+          const fullImage = img.getAttribute("data-full");
+          const alt = img.getAttribute("alt");
+          const caption = item.querySelector(".gallery-caption").textContent;
+
+          images.push({
+            src: fullImage,
+            alt: alt,
+            caption: caption,
+          });
+        });
+
+        // Open lightbox
+        viewBtns.forEach((btn, index) => {
+          btn.addEventListener("click", function () {
+            currentImageIndex = index;
+            updateLightbox();
+            lightbox.classList.add("active");
+            document.body.style.overflow = "hidden";
+          });
+        });
+
+        // Close lightbox
+        lightboxClose.addEventListener("click", function () {
+          lightbox.classList.remove("active");
+          document.body.style.overflow = "";
+        });
+
+        // Previous image
+        lightboxPrev.addEventListener("click", function () {
+          if (currentImageIndex > 0) {
+            currentImageIndex--;
+            updateLightbox();
+          }
+        });
+
+        // Next image
+        lightboxNext.addEventListener("click", function () {
+          if (currentImageIndex < images.length - 1) {
+            currentImageIndex++;
+            updateLightbox();
+          }
+        });
+
+        // Update lightbox content
+        function updateLightbox() {
+          const currentImage = images[currentImageIndex];
+          lightboxImage.src = currentImage.src;
+          lightboxImage.alt = currentImage.alt;
+          lightboxCaption.textContent = currentImage.caption;
+        }
+
+        // Keyboard navigation
+        document.addEventListener("keydown", function (e) {
+          if (lightbox.classList.contains("active")) {
+            if (e.key === "Escape") {
+              lightbox.classList.remove("active");
+              document.body.style.overflow = "";
+            }
+            if (e.key === "ArrowLeft") {
+              lightboxPrev.click();
+            }
+            if (e.key === "ArrowRight") {
+              lightboxNext.click();
+            }
+          }
+        });
+
+        // Video play functionality
+        playBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const videoUrl = this.getAttribute("data-video");
+            const videoTitle =
+              this.parentElement.nextElementSibling.querySelector(
+                "h3"
+              ).textContent;
+
+            // In a real implementation, you would open a video modal
+            alert(`Playing "${videoTitle}" 
+                Video URL: ${videoUrl}
+                In a real implementation, this would open a video player.`);
+          });
+        });
+
+        // Close lightbox when clicking outside
+        lightbox.addEventListener("click", function (e) {
+          if (e.target === lightbox) {
+            lightbox.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+      });
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
